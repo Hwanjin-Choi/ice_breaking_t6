@@ -1,0 +1,184 @@
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 1000px;
+    width: 90%;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .member-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .member-card:hover {
+    transform: scale(1.05);
+  }
+
+  .card-front,
+  .card-back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .card-front {
+    background-color: #f9f9f9;
+  }
+
+  .card-back {
+    background-color: #e9e9e9;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .member-card:hover .card-front {
+    transform: rotateY(180deg);
+  }
+
+  .member-card:hover .card-back {
+    transform: rotateY(0deg);
+  }
+
+  .member-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .member-card h3 {
+    margin-top: 0;
+    color: #555;
+  }
+
+  .card-back p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    color: #666;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>운영진 소개</title>
+    <link rel="stylesheet" href="creative_style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>운영진들을 소개합니다.</h1>
+      <div class="team-grid">
+        <div class="member-card">
+          <div class="card-front">
+            <img src="placeholder_kimnamhyun.jpg" alt="김남현 사진" />
+            <h3>김남현</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>MBTI:</strong> ???</p>
+            <p><strong>취미:</strong> ???</p>
+            <p><strong>소개:</strong> 안녕하세요 강사 김남현 입니다.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-front">
+            <img src="placeholder_choiyunyoung.jpg" alt="최윤영 사진" />
+            <h3>최윤영</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>MBTI:</strong> ???</p>
+            <p><strong>취미:</strong> ???</p>
+            <p>
+              <strong>소개:</strong> 안녕하세요 전략 교육 팀 선임 최윤영 입니다.
+            </p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-front">
+            <img src="placeholder_kwonyoungjin.jpg" alt="권영진 사진" />
+            <h3>권영진</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>MBTI:</strong> ENFJ</p>
+            <p><strong>취미:</strong> 알고리즘 풀기</p>
+            <p>
+              <strong>소개:</strong> 안녕하세요 전략 교육 팀 매니저 권영진
+              입니다. 문의하시고 싶은 내용 있으시면 언제든지 연락 주세요 !
+            </p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-front">
+            <img src="placeholder_parksumin.jpg" alt="박수민 사진" />
+            <h3>박수민</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>MBTI:</strong> ESTP</p>
+            <p><strong>취미:</strong> 볼링</p>
+            <p>
+              <strong>소개:</strong> 안녕하세요 FT 박수민 입니다. 여러분 이 강의
+              를 잘 따라 올 수 있도록 열심히 도와 드리겠습니다 .
+            </p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-front">
+            <img src="placeholder_parknomyung.jpg" alt="박노명 사진" />
+            <h3>박노명</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>MBTI:</strong> INFP</p>
+            <p><strong>취미:</strong> 유튜브 보기</p>
+            <p>
+              <strong>소개:</strong> 안녕하세요 전략 교육 팀 매니저 권영진
+              입니다. 열심히 강의 수강 하실 수 있도록 많이 도와 드리겠습니다 .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
