@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>금융조 퀴즈</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 1000px;
+      width: 90%;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-bottom: 40px;
+      color: #333;
+    }
+    
+    /* 퀴즈 버튼 중앙 정렬 */
+    .quiz-button {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .quiz-button:hover {
+      background-color: #0056b3;
+    }
+    
+    /* 숨겨진 체크박스 (토글용) */
+    #quizToggle {
+      display: none;
+    }
+    
+    /* 퀴즈 영역 기본 상태 */
+    .quiz-container {
+      display: none;
+      margin-top: 20px;
+    }
+    
+    /* 체크박스가 체크되면 퀴즈 영역 보이기 */
+    #quizToggle:checked ~ .quiz-container {
+      display: block;
+    }
+    
+    /* 카운트다운 영역 스타일 */
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      height: 40px;
+      position: relative;
+    }
+    
+    /* 질문 영역: 미리 작성해둔 질문들을 겹치게 배치 */
+    .question-container {
+      position: relative;
+      height: 40px;
+      overflow: hidden;
+    }
+    
+    .question {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      font-size: 1.2em;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    /* 아래 keyframes는 각 질문이 나타나는 타이밍을 조절합니다.
+       예시에서는 3초 카운트다운 후 5초 동안 각 질문이 보입니다.
+       총 10문제로 구성하려면 각 질문에 적절한 animation-delay 값을 주면 됩니다. */
+    @keyframes fadeInOut {
+      0%   { opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    
+    /* 예시로 3문제를 순차적으로 보여줍니다.
+       실제로는 10문제로 늘려야 하며, animation-delay를 조정하면 됩니다. */
+    .question:nth-child(1) {
+      animation: fadeInOut 5s forwards;
+      animation-delay: 3s; /* 카운트다운 후 첫 질문 */
+    }
+    .question:nth-child(2) {
+      animation: fadeInOut 5s forwards;
+      animation-delay: 8s;
+    }
+    .question:nth-child(3) {
+      animation: fadeInOut 5s forwards;
+      animation-delay: 13s;
+    }
+    /* 필요에 따라 .question:nth-child(4) ... nth-child(10) 추가 */
+    
+    /* 카운트다운 애니메이션 (pseudo-element 사용)
+       단, content를 변경하는 방식은 실제 텍스트 변경이 아니라 단순 시각적 효과입니다. */
+    .countdown::before {
+      content: "3";
+      animation: countdown 3s steps(3) forwards;
+    }
+    
+    @keyframes countdown {
+      0% { content: "3"; }
+      33% { content: "2"; }
+      66% { content: "1"; }
+      100% { content: "0"; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>금융조를 소개합니다.</h1>
+    <!-- 퀴즈풀기 버튼과 토글 체크박스 -->
+    <label for="quizToggle" class="quiz-button">퀴즈 풀기</label>
+    <input type="checkbox" id="quizToggle" />
+    
+    <!-- 퀴즈 영역 -->
+    <div class="quiz-container">
+      <div class="countdown"></div>
+      <div class="question-container">
+        <!-- 미리 저장한 질문들 (예시: 10문제 중 3문제만 표시) -->
+        <div class="question">윤준서의 MBTI는 무엇일까요?</div>
+        <div class="question">최윤영의 MBTI는 무엇일까요?</div>
+        <div class="question">권영진의 MBTI는 무엇일까요?</div>
+        <!-- 실제 사용 시 10개의 질문 요소를 추가 -->
+      </div>
+    </div>
+    
+    <!-- 아래는 기존 팀원 카드 영역 -->
+    <div class="team-grid">
+      <div class="member-card">
+        <div class="card-front">
+          <img src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-ty0CoZao8eIAgVnSKFg7.wCU6wb6fioY3Pzh30vsm.uUVdZeJm5qCcOPf5EFG6.ua6kq1m7YDtCPmdkEMGa.UtpZwGddNKBY4kBW22fJ.png?d=" alt="윤준서 사진" />
+          <h3>윤준서</h3>
+        </div>
+        <div class="card-back">
+          <p><strong>MBTI:</strong> INTP</p>
+          <p><strong>취미:</strong> 음악 감상 / 게임</p>
+          <p><strong>소개:</strong> 소개입니다</p>
+        </div>
+      </div>
+      <!-- 기타 팀원 카드들 ... -->
+    </div>
+  </div>
+</body>
+</html>
