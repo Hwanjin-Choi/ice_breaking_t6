@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Card with Table and Hover Effect</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #181a1b; /* Dark background */
+        color: #e0e0e0; /* Light text */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        min-height: 100vh;
+        margin: 0;
+        overflow-y: auto; /* Enable vertical scrolling if content overflows */
+      }
+
+      .mainContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center tables horizontally within the container */
+        width: 90%; /* Adjust as needed, can be less than body width */
+        max-width: 1200px; /* Optional: set a maximum width for the container */
+        margin-bottom: 50px;
+      }
+
+      .user-card-table {
+        width: 70%; /* Adjust as needed */
+        border-collapse: collapse;
+        background-color: #282a2b; /* Darker card background */
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 15px 0px;
+        cursor: pointer;
+      }
+
+      .user-card-table td {
+        padding: 15px;
+        vertical-align: middle;
+      }
+
+      .avatar-column {
+        width: 70px;
+        padding-left: 20px;
+      }
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .info-column {
+        padding-left: 15px;
+        position: relative; /* Needed for absolute positioning of card sides */
+        height: 80px; /* Adjust based on your content height */
+      }
+
+      .card-wrapper {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s ease-in-out;
+        transform-style: preserve-3d;
+      }
+
+      .user-card-table:hover .card-wrapper {
+        transform: rotateY(180deg);
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      .card-front {
+        background-color: #282a2b;
+        color: #e0e0e0;
+      }
+
+      .card-back {
+        background-color: #383a3b;
+        color: #e0e0e0;
+        transform: rotateY(180deg);
+      }
+
+      .name {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .username {
+        color: #999;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+      }
+
+      .short-description {
+        color: #ccc;
+        font-size: 0.9em;
+      }
+
+      .long-description {
+        color: #ccc;
+        font-size: 0.9em;
+      }
+      .mainDescription {
+        font-size: 1.5rem;
+        margin: 30px 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <h2 class="mainDescription">금융조를 소개합니다</h2>
+    </div>
+    <div class="mainContainer">
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-XKiK1zaPbBlf0d3FJGoi.IxFn4Is3OJFEuIQqAEKY.6lc6LksrQBu_YmRwgodl.yzrkwnOBThC3VfHSlGQ0.UJy0fOWWJ9sdtdTfnVDz.kNxsCad0RQNKB2G0kOTb.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">홍석희</div>
+
+                <div class="username">skdlzl753@naver.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  안녕하세요 홍석희입니다. MBTI는 ISFJ이고, 커피 좋아합니다.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="user-card-table">
+        <tr>
+          <td class="avatar-column">
+            <img
+              src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.BxmAmZv6QAKUi_V3rNxv.2c7srJ0ESum7wwPL_Ya6.6lc6LksrQBu_YmRwgodl.KKnwTu4eQJC_2bE2qMnE.UJy0fOWWJ9sdtdTfnVDz.IQDrzOwV1MXah4sX5mQX.png?d=."
+              alt="Avatar"
+              class="avatar"
+            />
+          </td>
+
+          <td class="info-column">
+            <div class="card-wrapper">
+              <div class="card-front">
+                <div class="name">최환진</div>
+
+                <div class="username">hwanjinchoi0424@gmail.com</div>
+              </div>
+
+              <div class="card-back">
+                <div class="long-description">
+                  This is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share. This is a more in-depth
+                  introduction about yourself. You can include details about
+                  your background, skills, interests, or anything else you'd
+                  like to share.This is a more in-depth introduction about
+                  yourself. You can include details about your background,
+                  skills, interests, or anything else you'd like to share.This
+                  is a more in-depth introduction about yourself. You can
+                  include details about your background, skills, interests, or
+                  anything else you'd like to share.
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
